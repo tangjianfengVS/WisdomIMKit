@@ -1,0 +1,582 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A5FDD46F2151E63700527110 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FDD46E2151E63700527110 /* AppDelegate.swift */; };
+		A5FDD4712151E63700527110 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FDD4702151E63700527110 /* ViewController.swift */; };
+		A5FDD4742151E63700527110 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5FDD4722151E63700527110 /* Main.storyboard */; };
+		A5FDD4762151E63800527110 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5FDD4752151E63800527110 /* Assets.xcassets */; };
+		A5FDD4792151E63800527110 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5FDD4772151E63800527110 /* LaunchScreen.storyboard */; };
+		A5FDD4852151E75C00527110 /* SessionLoginNI.m in Sources */ = {isa = PBXBuildFile; fileRef = A5FDD4832151E75C00527110 /* SessionLoginNI.m */; };
+		A5FDD4882151E7A600527110 /* NSString+SHA256.m in Sources */ = {isa = PBXBuildFile; fileRef = A5FDD4862151E7A600527110 /* NSString+SHA256.m */; };
+		A5FDD4B22151E7E700527110 /* myTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A5FDD48A2151E7E600527110 /* myTool.m */; };
+		A5FDD4BB2151E7E700527110 /* MQEncodeAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = A5FDD49A2151E7E600527110 /* MQEncodeAudio.m */; };
+		A5FDD4BC2151E7E700527110 /* libopencore-amrwb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5FDD49D2151E7E600527110 /* libopencore-amrwb.a */; };
+		A5FDD4BD2151E7E700527110 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5FDD49E2151E7E600527110 /* libopencore-amrnb.a */; };
+		A5FDD4BE2151E7E700527110 /* libBigInteger-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5FDD4A32151E7E700527110 /* libBigInteger-iOS.a */; };
+		A5FDD4C42151E7E700527110 /* SRPContants.m in Sources */ = {isa = PBXBuildFile; fileRef = A5FDD4AC2151E7E700527110 /* SRPContants.m */; };
+		A5FDD4C52151E7E700527110 /* SRPUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A5FDD4AD2151E7E700527110 /* SRPUtils.m */; };
+		A5FDD4C62151E7E700527110 /* SRPClientSession.m in Sources */ = {isa = PBXBuildFile; fileRef = A5FDD4AE2151E7E700527110 /* SRPClientSession.m */; };
+		A5FDD4CA2151E80A00527110 /* ZKAFJSONRPCClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A5FDD4C82151E80A00527110 /* ZKAFJSONRPCClient.m */; };
+		D10CCF07B109C0CE868EA06A /* Pods_WisdomIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 173EA802618D39BAB871891D /* Pods_WisdomIMKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		173EA802618D39BAB871891D /* Pods_WisdomIMKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WisdomIMKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5FDD46B2151E63700527110 /* WisdomIMKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WisdomIMKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5FDD46E2151E63700527110 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A5FDD4702151E63700527110 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A5FDD4732151E63700527110 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A5FDD4752151E63800527110 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A5FDD4782151E63800527110 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A5FDD47A2151E63800527110 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5FDD4822151E75B00527110 /* WisdomIMKit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WisdomIMKit-Bridging-Header.h"; sourceTree = "<group>"; };
+		A5FDD4832151E75C00527110 /* SessionLoginNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionLoginNI.m; sourceTree = "<group>"; };
+		A5FDD4842151E75C00527110 /* SessionLoginNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionLoginNI.h; sourceTree = "<group>"; };
+		A5FDD4862151E7A600527110 /* NSString+SHA256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA256.m"; sourceTree = "<group>"; };
+		A5FDD4872151E7A600527110 /* NSString+SHA256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA256.h"; sourceTree = "<group>"; };
+		A5FDD48A2151E7E600527110 /* myTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myTool.m; sourceTree = "<group>"; };
+		A5FDD48B2151E7E600527110 /* myTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myTool.h; sourceTree = "<group>"; };
+		A5FDD4982151E7E600527110 /* if_rom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = if_rom.h; sourceTree = "<group>"; };
+		A5FDD4992151E7E600527110 /* dec_if.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dec_if.h; sourceTree = "<group>"; };
+		A5FDD49A2151E7E600527110 /* MQEncodeAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQEncodeAudio.m; sourceTree = "<group>"; };
+		A5FDD49B2151E7E600527110 /* MQEncodeAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQEncodeAudio.h; sourceTree = "<group>"; };
+		A5FDD49D2151E7E600527110 /* libopencore-amrwb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrwb.a"; sourceTree = "<group>"; };
+		A5FDD49E2151E7E600527110 /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
+		A5FDD4A02151E7E700527110 /* interf_dec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_dec.h; sourceTree = "<group>"; };
+		A5FDD4A12151E7E700527110 /* interf_enc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_enc.h; sourceTree = "<group>"; };
+		A5FDD4A32151E7E700527110 /* libBigInteger-iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libBigInteger-iOS.a"; sourceTree = "<group>"; };
+		A5FDD4A42151E7E700527110 /* BigInteger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigInteger.h; sourceTree = "<group>"; };
+		A5FDD4AC2151E7E700527110 /* SRPContants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRPContants.m; sourceTree = "<group>"; };
+		A5FDD4AD2151E7E700527110 /* SRPUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRPUtils.m; sourceTree = "<group>"; };
+		A5FDD4AE2151E7E700527110 /* SRPClientSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRPClientSession.m; sourceTree = "<group>"; };
+		A5FDD4AF2151E7E700527110 /* SRPUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRPUtils.h; sourceTree = "<group>"; };
+		A5FDD4B02151E7E700527110 /* SRPContants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRPContants.h; sourceTree = "<group>"; };
+		A5FDD4B12151E7E700527110 /* SRPClientSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRPClientSession.h; sourceTree = "<group>"; };
+		A5FDD4C82151E80A00527110 /* ZKAFJSONRPCClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKAFJSONRPCClient.m; sourceTree = "<group>"; };
+		A5FDD4C92151E80A00527110 /* ZKAFJSONRPCClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKAFJSONRPCClient.h; sourceTree = "<group>"; };
+		C314636E277E8E4FC2062291 /* Pods-WisdomIMKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WisdomIMKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WisdomIMKit/Pods-WisdomIMKit.debug.xcconfig"; sourceTree = "<group>"; };
+		F9D725336DBBB580DCE357EC /* Pods-WisdomIMKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WisdomIMKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-WisdomIMKit/Pods-WisdomIMKit.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A5FDD4682151E63700527110 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5FDD4BE2151E7E700527110 /* libBigInteger-iOS.a in Frameworks */,
+				A5FDD4BC2151E7E700527110 /* libopencore-amrwb.a in Frameworks */,
+				A5FDD4BD2151E7E700527110 /* libopencore-amrnb.a in Frameworks */,
+				D10CCF07B109C0CE868EA06A /* Pods_WisdomIMKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2410E7EDCEA0F5D706931200 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C314636E277E8E4FC2062291 /* Pods-WisdomIMKit.debug.xcconfig */,
+				F9D725336DBBB580DCE357EC /* Pods-WisdomIMKit.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		91BA3376A87B5BEA98C7F626 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				173EA802618D39BAB871891D /* Pods_WisdomIMKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A5FDD4622151E63700527110 = {
+			isa = PBXGroup;
+			children = (
+				A5FDD46D2151E63700527110 /* WisdomIMKit */,
+				A5FDD46C2151E63700527110 /* Products */,
+				2410E7EDCEA0F5D706931200 /* Pods */,
+				91BA3376A87B5BEA98C7F626 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A5FDD46C2151E63700527110 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A5FDD46B2151E63700527110 /* WisdomIMKit.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A5FDD46D2151E63700527110 /* WisdomIMKit */ = {
+			isa = PBXGroup;
+			children = (
+				A5FDD4812151E6FB00527110 /* Login */,
+				A5FDD4802151E6DF00527110 /* WisdomIMKit */,
+				A5FDD46E2151E63700527110 /* AppDelegate.swift */,
+				A5FDD4702151E63700527110 /* ViewController.swift */,
+				A5FDD4722151E63700527110 /* Main.storyboard */,
+				A5FDD4752151E63800527110 /* Assets.xcassets */,
+				A5FDD4772151E63800527110 /* LaunchScreen.storyboard */,
+				A5FDD47A2151E63800527110 /* Info.plist */,
+			);
+			path = WisdomIMKit;
+			sourceTree = "<group>";
+		};
+		A5FDD4802151E6DF00527110 /* WisdomIMKit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WisdomIMKit;
+			sourceTree = "<group>";
+		};
+		A5FDD4812151E6FB00527110 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A5FDD4C72151E80A00527110 /* ZKAFJSONRPCClient */,
+				A5FDD4892151E7E600527110 /* Other */,
+				A5FDD4872151E7A600527110 /* NSString+SHA256.h */,
+				A5FDD4862151E7A600527110 /* NSString+SHA256.m */,
+				A5FDD4842151E75C00527110 /* SessionLoginNI.h */,
+				A5FDD4832151E75C00527110 /* SessionLoginNI.m */,
+				A5FDD4822151E75B00527110 /* WisdomIMKit-Bridging-Header.h */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A5FDD4892151E7E600527110 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				A5FDD48A2151E7E600527110 /* myTool.m */,
+				A5FDD48B2151E7E600527110 /* myTool.h */,
+				A5FDD4962151E7E600527110 /* MQEncodeAudio */,
+				A5FDD4A22151E7E700527110 /* BigInteger */,
+				A5FDD4AB2151E7E700527110 /* SRP */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		A5FDD4962151E7E600527110 /* MQEncodeAudio */ = {
+			isa = PBXGroup;
+			children = (
+				A5FDD4972151E7E600527110 /* opencore-amrwb */,
+				A5FDD49A2151E7E600527110 /* MQEncodeAudio.m */,
+				A5FDD49B2151E7E600527110 /* MQEncodeAudio.h */,
+				A5FDD49C2151E7E600527110 /* lib */,
+				A5FDD49F2151E7E700527110 /* opencore-amrnb */,
+			);
+			path = MQEncodeAudio;
+			sourceTree = "<group>";
+		};
+		A5FDD4972151E7E600527110 /* opencore-amrwb */ = {
+			isa = PBXGroup;
+			children = (
+				A5FDD4982151E7E600527110 /* if_rom.h */,
+				A5FDD4992151E7E600527110 /* dec_if.h */,
+			);
+			path = "opencore-amrwb";
+			sourceTree = "<group>";
+		};
+		A5FDD49C2151E7E600527110 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				A5FDD49D2151E7E600527110 /* libopencore-amrwb.a */,
+				A5FDD49E2151E7E600527110 /* libopencore-amrnb.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		A5FDD49F2151E7E700527110 /* opencore-amrnb */ = {
+			isa = PBXGroup;
+			children = (
+				A5FDD4A02151E7E700527110 /* interf_dec.h */,
+				A5FDD4A12151E7E700527110 /* interf_enc.h */,
+			);
+			path = "opencore-amrnb";
+			sourceTree = "<group>";
+		};
+		A5FDD4A22151E7E700527110 /* BigInteger */ = {
+			isa = PBXGroup;
+			children = (
+				A5FDD4A32151E7E700527110 /* libBigInteger-iOS.a */,
+				A5FDD4A42151E7E700527110 /* BigInteger.h */,
+			);
+			path = BigInteger;
+			sourceTree = "<group>";
+		};
+		A5FDD4AB2151E7E700527110 /* SRP */ = {
+			isa = PBXGroup;
+			children = (
+				A5FDD4AC2151E7E700527110 /* SRPContants.m */,
+				A5FDD4AD2151E7E700527110 /* SRPUtils.m */,
+				A5FDD4AE2151E7E700527110 /* SRPClientSession.m */,
+				A5FDD4AF2151E7E700527110 /* SRPUtils.h */,
+				A5FDD4B02151E7E700527110 /* SRPContants.h */,
+				A5FDD4B12151E7E700527110 /* SRPClientSession.h */,
+			);
+			path = SRP;
+			sourceTree = "<group>";
+		};
+		A5FDD4C72151E80A00527110 /* ZKAFJSONRPCClient */ = {
+			isa = PBXGroup;
+			children = (
+				A5FDD4C82151E80A00527110 /* ZKAFJSONRPCClient.m */,
+				A5FDD4C92151E80A00527110 /* ZKAFJSONRPCClient.h */,
+			);
+			path = ZKAFJSONRPCClient;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A5FDD46A2151E63700527110 /* WisdomIMKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5FDD47D2151E63800527110 /* Build configuration list for PBXNativeTarget "WisdomIMKit" */;
+			buildPhases = (
+				DB7B062A481234838AAB19C1 /* [CP] Check Pods Manifest.lock */,
+				A5FDD4672151E63700527110 /* Sources */,
+				A5FDD4682151E63700527110 /* Frameworks */,
+				A5FDD4692151E63700527110 /* Resources */,
+				5F17F07DB9E21F52B2129BC6 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WisdomIMKit;
+			productName = WisdomIMKit;
+			productReference = A5FDD46B2151E63700527110 /* WisdomIMKit.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A5FDD4632151E63700527110 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "All over the sky star";
+				TargetAttributes = {
+					A5FDD46A2151E63700527110 = {
+						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
+					};
+				};
+			};
+			buildConfigurationList = A5FDD4662151E63700527110 /* Build configuration list for PBXProject "WisdomIMKit" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A5FDD4622151E63700527110;
+			productRefGroup = A5FDD46C2151E63700527110 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A5FDD46A2151E63700527110 /* WisdomIMKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A5FDD4692151E63700527110 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5FDD4792151E63800527110 /* LaunchScreen.storyboard in Resources */,
+				A5FDD4762151E63800527110 /* Assets.xcassets in Resources */,
+				A5FDD4742151E63700527110 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5F17F07DB9E21F52B2129BC6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WisdomIMKit/Pods-WisdomIMKit-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WisdomIMKit/Pods-WisdomIMKit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB7B062A481234838AAB19C1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WisdomIMKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A5FDD4672151E63700527110 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5FDD4BB2151E7E700527110 /* MQEncodeAudio.m in Sources */,
+				A5FDD4B22151E7E700527110 /* myTool.m in Sources */,
+				A5FDD4C42151E7E700527110 /* SRPContants.m in Sources */,
+				A5FDD4882151E7A600527110 /* NSString+SHA256.m in Sources */,
+				A5FDD4C62151E7E700527110 /* SRPClientSession.m in Sources */,
+				A5FDD4712151E63700527110 /* ViewController.swift in Sources */,
+				A5FDD4852151E75C00527110 /* SessionLoginNI.m in Sources */,
+				A5FDD4CA2151E80A00527110 /* ZKAFJSONRPCClient.m in Sources */,
+				A5FDD46F2151E63700527110 /* AppDelegate.swift in Sources */,
+				A5FDD4C52151E7E700527110 /* SRPUtils.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A5FDD4722151E63700527110 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5FDD4732151E63700527110 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A5FDD4772151E63800527110 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5FDD4782151E63800527110 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A5FDD47B2151E63800527110 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A5FDD47C2151E63800527110 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A5FDD47E2151E63800527110 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C314636E277E8E4FC2062291 /* Pods-WisdomIMKit.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = WisdomIMKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WisdomIMKit/Login/Other/MQEncodeAudio/lib",
+					"$(PROJECT_DIR)/WisdomIMKit/Login/Other/BigInteger",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "All-over-the-sky-star.WisdomIMKit";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "WisdomIMKit/Login/WisdomIMKit-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A5FDD47F2151E63800527110 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9D725336DBBB580DCE357EC /* Pods-WisdomIMKit.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = WisdomIMKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WisdomIMKit/Login/Other/MQEncodeAudio/lib",
+					"$(PROJECT_DIR)/WisdomIMKit/Login/Other/BigInteger",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "All-over-the-sky-star.WisdomIMKit";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "WisdomIMKit/Login/WisdomIMKit-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A5FDD4662151E63700527110 /* Build configuration list for PBXProject "WisdomIMKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5FDD47B2151E63800527110 /* Debug */,
+				A5FDD47C2151E63800527110 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5FDD47D2151E63800527110 /* Build configuration list for PBXNativeTarget "WisdomIMKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5FDD47E2151E63800527110 /* Debug */,
+				A5FDD47F2151E63800527110 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A5FDD4632151E63700527110 /* Project object */;
+}
