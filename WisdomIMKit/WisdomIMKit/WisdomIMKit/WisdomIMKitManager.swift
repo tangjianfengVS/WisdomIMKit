@@ -30,12 +30,12 @@ public class WisdomIMKitManager: NSObject {
     
     fileprivate lazy var payloadVO = WisdomIMDataVO()
     
-    var delegate: WisdomIMKitManagerDelegate?
+    public var delegate: WisdomIMKitManagerDelegate?
 
     /**
      *  网络状态变更通知
      */
-    fileprivate(set) var sessionType: WisdomSessionType = .sessionNone {
+    @objc fileprivate(set) var sessionType: WisdomSessionType = .sessionNone {
         didSet{
             if oldValue != sessionType {
                 NotificationCenter.default.post(name: NSNotification.Name.init(WisdomSessionChangeNotificationKey), object: sessionType, userInfo: nil)
@@ -46,7 +46,7 @@ public class WisdomIMKitManager: NSObject {
     /**
      *  IM状态变更通知，处理重连机制
      */
-    fileprivate(set) var iMConnectType: WisdomIMConnectType = .UnConnect {
+    @objc fileprivate(set) var iMConnectType: WisdomIMConnectType = .UnConnect {
         didSet{
             if iMConnectType == .FalesConnect {
                 currentHeartBeat = heartBeatTimeMin

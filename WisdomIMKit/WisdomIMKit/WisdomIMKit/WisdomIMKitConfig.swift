@@ -8,18 +8,18 @@
 
 import UIKit
 
-let heartBeatTimeMin = 10
-let heartBeatTimeMax = 180
-let kMaxReconnection_time = 6
-let beatLimit = 5
+public let heartBeatTimeMin = 10
+public let heartBeatTimeMax = 180
+public let kMaxReconnection_time = 6
+public let beatLimit = 5
 
 //设备信号变化通知
-let WisdomSessionChangeNotificationKey = "WisdomSessionChangeNotificationKey"
+public let WisdomSessionChangeNotificationKey = "WisdomSessionChangeNotificationKey"
 //IM连接状态变化通知
-let WisdomIMConnectChangeNotificationKey = "WisdomIMConnectChangeNotificationKey"
+public let WisdomIMConnectChangeNotificationKey = "WisdomIMConnectChangeNotificationKey"
 
 //IM连接状态判断
-enum WisdomIMConnectType: Int {
+@objc public enum WisdomIMConnectType: Int {
     case UnConnect = 0                    // 未连接
     case ConnectRequest = 1               // 连接请求中
     case SuccessConnect = 2               // 连接成功
@@ -29,20 +29,20 @@ enum WisdomIMConnectType: Int {
 }
 
 //网络信号状态判断
-enum WisdomSessionType {
-    case sessionNone      //无网络
-    case sessionCellular  //移动网络
-    case sessionWifi      //Wifi
+@objc public enum WisdomSessionType: NSInteger {
+    case sessionNone=0      //无网络
+    case sessionCellular=1  //移动网络
+    case sessionWifi=2      //Wifi
 }
 
 //当前网络任务操作事件
-enum WisdomSessionTaskEvent {
-    case commonEvent     //无事件
-    case invokeEvent     //invoke自定义主动事件
-    case sendEvent       //send自定义主动事件
+@objc public enum WisdomSessionTaskEvent: NSInteger {
+    case commonEvent=0     //无事件
+    case invokeEvent=1     //invoke自定义主动事件
+    case sendEvent=2      //send自定义主动事件
 }
 
-public protocol WisdomIMKitManagerDelegate  {
+@objc public protocol WisdomIMKitManagerDelegate  {
     //im用户数据同步协议
     func sessionSynchronUserInfo(info: [String:Any])
     
