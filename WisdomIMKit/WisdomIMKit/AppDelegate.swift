@@ -7,16 +7,46 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setMinimumDismissTimeInterval(1.5)
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.backgroundColor = UIColor.white
+        
+        //初始化IM
+        WisdomIMKitManager.shared.connect(toHost: "222.66.158.238", onPort: 61613, timeOut: 15, successConnect: {
+            //登录
+            let userinfo = WisdomUserinfo(Uin: "11971",
+                                          Sid: "8yi81q4f3a7mk0ai",
+                                          Skey: "8793a4ea88edccb42098a7b5e31bee4e",
+                                          DeviceID: "")
+            WisdomIMKitManager.shared.synchronUserInfo(userinfo: userinfo,
+                                                       mode: 1,
+                                                       service: 1,
+                                                       randomKey: "b14xad266odmmwpu",
+                                                       seqId: 3286)
+        }) { (error) in
+            print("连接失败")
+        }
+        
+        let navVC = UINavigationController(rootViewController: TestViewController())
+        window!.rootViewController = navVC
+        window!.makeKeyAndVisible()
         return true
+    }
+    
+    @objc func login(noti: Notification) {
+        if !(window?.rootViewController?.isKind(of: TestViewController.self))!{
+            let rootVC = TestViewController()
+            window?.rootViewController = rootVC
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
