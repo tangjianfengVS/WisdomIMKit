@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A590C50D218D8A4800955776 /* WisdomGCDAsyncSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A590C50C218D8A4800955776 /* WisdomGCDAsyncSocket.swift */; };
+		A590C50F218D8A6200955776 /* WisdomGCDAsyncUdpSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A590C50E218D8A6200955776 /* WisdomGCDAsyncUdpSocket.swift */; };
+		A590C511218D8BA500955776 /* WisdomGCDAsyncSocketDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A590C510218D8BA500955776 /* WisdomGCDAsyncSocketDelegate.swift */; };
 		A5FDD46F2151E63700527110 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FDD46E2151E63700527110 /* AppDelegate.swift */; };
 		A5FDD4762151E63800527110 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5FDD4752151E63800527110 /* Assets.xcassets */; };
 		A5FDD4792151E63800527110 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5FDD4772151E63800527110 /* LaunchScreen.storyboard */; };
@@ -94,6 +97,9 @@
 
 /* Begin PBXFileReference section */
 		173EA802618D39BAB871891D /* Pods_WisdomIMKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WisdomIMKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A590C50C218D8A4800955776 /* WisdomGCDAsyncSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WisdomGCDAsyncSocket.swift; sourceTree = "<group>"; };
+		A590C50E218D8A6200955776 /* WisdomGCDAsyncUdpSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WisdomGCDAsyncUdpSocket.swift; sourceTree = "<group>"; };
+		A590C510218D8BA500955776 /* WisdomGCDAsyncSocketDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WisdomGCDAsyncSocketDelegate.swift; sourceTree = "<group>"; };
 		A5FDD46B2151E63700527110 /* WisdomIMKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WisdomIMKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5FDD46E2151E63700527110 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5FDD4752151E63800527110 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -299,6 +305,9 @@
 				A5FDD4FC2151FE2B00527110 /* GCDAsyncSocket.m */,
 				A5FDD4FD2151FE2B00527110 /* GCDAsyncUdpSocket.h */,
 				A5FDD4FB2151FE2B00527110 /* GCDAsyncUdpSocket.m */,
+				A590C50C218D8A4800955776 /* WisdomGCDAsyncSocket.swift */,
+				A590C50E218D8A6200955776 /* WisdomGCDAsyncUdpSocket.swift */,
+				A590C510218D8BA500955776 /* WisdomGCDAsyncSocketDelegate.swift */,
 			);
 			path = WisdomGCD;
 			sourceTree = "<group>";
@@ -306,13 +315,16 @@
 		A5FDD511215248F800527110 /* CryptoSwift */ = {
 			isa = PBXGroup;
 			children = (
+				A5FDD520215248F800527110 /* Foundation */,
+				A5FDD541215248F900527110 /* PKCS */,
+				A5FDD547215248F900527110 /* BlockMode */,
 				A5FDD512215248F800527110 /* Array+Extensions.swift */,
 				A5FDD513215248F800527110 /* AES.swift */,
+				A5FDD518215248F800527110 /* AES.Cryptors.swift */,
 				A5FDD514215248F800527110 /* UInt64+Extension.swift */,
 				A5FDD515215248F800527110 /* Cryptors.swift */,
 				A5FDD516215248F800527110 /* Cipher.swift */,
 				A5FDD517215248F800527110 /* Int+Extension.swift */,
-				A5FDD518215248F800527110 /* AES.Cryptors.swift */,
 				A5FDD519215248F800527110 /* Bit.swift */,
 				A5FDD51A215248F800527110 /* HMAC.swift */,
 				A5FDD51B215248F800527110 /* UInt16+Extension.swift */,
@@ -320,7 +332,6 @@
 				A5FDD51D215248F800527110 /* UInt32+Extension.swift */,
 				A5FDD51E215248F800527110 /* Digest.swift */,
 				A5FDD51F215248F800527110 /* NoPadding.swift */,
-				A5FDD520215248F800527110 /* Foundation */,
 				A5FDD52A215248F800527110 /* UInt8+Extension.swift */,
 				A5FDD52B215248F800527110 /* MD5.swift */,
 				A5FDD52C215248F800527110 /* BatchedCollection.swift */,
@@ -328,11 +339,9 @@
 				A5FDD52E215248F800527110 /* ZeroPadding.swift */,
 				A5FDD52F215248F800527110 /* String+Extension.swift */,
 				A5FDD530215248F800527110 /* Authenticator.swift */,
-				A5FDD531215248F800527110 /* SHA3.swift */,
 				A5FDD532215248F800527110 /* Operators.swift */,
 				A5FDD533215248F800527110 /* RandomBytesSequence.swift */,
 				A5FDD534215248F800527110 /* Rabbit.swift */,
-				A5FDD535215248F800527110 /* SHA1.swift */,
 				A5FDD536215248F800527110 /* Poly1305.swift */,
 				A5FDD537215248F800527110 /* BlockCipher.swift */,
 				A5FDD538215248F800527110 /* Updatable.swift */,
@@ -342,10 +351,10 @@
 				A5FDD53C215248F800527110 /* Generics.swift */,
 				A5FDD53D215248F800527110 /* Checksum.swift */,
 				A5FDD53E215248F900527110 /* RandomAccessCryptor.swift */,
+				A5FDD535215248F800527110 /* SHA1.swift */,
 				A5FDD53F215248F900527110 /* SHA2.swift */,
+				A5FDD531215248F800527110 /* SHA3.swift */,
 				A5FDD540215248F900527110 /* Padding.swift */,
-				A5FDD541215248F900527110 /* PKCS */,
-				A5FDD547215248F900527110 /* BlockMode */,
 				A5FDD552215248F900527110 /* ChaCha20.swift */,
 				A5FDD553215248F900527110 /* Array+Extension.swift */,
 			);
@@ -384,13 +393,13 @@
 			isa = PBXGroup;
 			children = (
 				A5FDD548215248F900527110 /* BlockModeOptions.swift */,
-				A5FDD549215248F900527110 /* CFB.swift */,
-				A5FDD54A215248F900527110 /* CBC.swift */,
 				A5FDD54B215248F900527110 /* RandomAccessBlockModeWorker.swift */,
-				A5FDD54C215248F900527110 /* ECB.swift */,
-				A5FDD54D215248F900527110 /* PCBC.swift */,
 				A5FDD54E215248F900527110 /* BlockModeWorker.swift */,
 				A5FDD54F215248F900527110 /* BlockMode.swift */,
+				A5FDD549215248F900527110 /* CFB.swift */,
+				A5FDD54A215248F900527110 /* CBC.swift */,
+				A5FDD54C215248F900527110 /* ECB.swift */,
+				A5FDD54D215248F900527110 /* PCBC.swift */,
 				A5FDD550215248F900527110 /* CTR.swift */,
 				A5FDD551215248F900527110 /* OFB.swift */,
 			);
@@ -515,6 +524,7 @@
 				A5FDD588215248F900527110 /* CFB.swift in Sources */,
 				A5FDD59821524EF500527110 /* Data+Gzip.swift in Sources */,
 				A5FDD572215248F900527110 /* SHA3.swift in Sources */,
+				A590C50F218D8A6200955776 /* WisdomGCDAsyncUdpSocket.swift in Sources */,
 				A5FDD56C215248F900527110 /* MD5.swift in Sources */,
 				A5FDD56A215248F900527110 /* Rabbit+Foundation.swift in Sources */,
 				A5FDD578215248F900527110 /* BlockCipher.swift in Sources */,
@@ -541,6 +551,7 @@
 				A5FDD56B215248F900527110 /* UInt8+Extension.swift in Sources */,
 				A5FDD592215248F900527110 /* Array+Extension.swift in Sources */,
 				A5FDD4F32151F4E000527110 /* DeviceInfo.swift in Sources */,
+				A590C50D218D8A4800955776 /* WisdomGCDAsyncSocket.swift in Sources */,
 				A5FDD584215248F900527110 /* PKCS7.swift in Sources */,
 				A5FDD58E215248F900527110 /* BlockMode.swift in Sources */,
 				A5FDD5002151FE2B00527110 /* GCDAsyncSocket.m in Sources */,
@@ -548,6 +559,7 @@
 				A5FDD570215248F900527110 /* String+Extension.swift in Sources */,
 				A5FDD4F92151FCDB00527110 /* WisdomIMKitManager.swift in Sources */,
 				A5FDD560215248F900527110 /* Digest.swift in Sources */,
+				A590C511218D8BA500955776 /* WisdomGCDAsyncSocketDelegate.swift in Sources */,
 				A5FDD58C215248F900527110 /* PCBC.swift in Sources */,
 				A5FDD58A215248F900527110 /* RandomAccessBlockModeWorker.swift in Sources */,
 				A5FDD577215248F900527110 /* Poly1305.swift in Sources */,

@@ -9,7 +9,7 @@
 import UIKit
 
 struct WisdomIMDataEncoding {
-    //加
+    /** 加 */
     mutating func AESAndGZip(payload: Data) -> (Data,UInt8,UInt8,UInt16){
         let uInt8s = aes(payload: payload)
         if uInt8s != nil{
@@ -20,7 +20,7 @@ struct WisdomIMDataEncoding {
         }
     }
     
-    //解
+    /** 解 */
     mutating func unGZipAndUnAES(payload: [UInt8], optrOption : UInt16,need : Bool) -> Data{
         let bit1 = optrOption & 1
         let bit2 = optrOption & 2
@@ -43,7 +43,7 @@ struct WisdomIMDataEncoding {
         }
     }
     
-    //AES-ECB128加密
+    /** AES-ECB128加密 */
     private mutating func aes(payload : Data) -> [UInt8]? {
         let strPayload = String.init(data: payload, encoding: String.Encoding.utf8)
         do {

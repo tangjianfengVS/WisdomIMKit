@@ -51,6 +51,7 @@ struct WisdomIMDataVO {
                 optrOption = list.3
                 self.payload = bytes
             }
+            
             if headersData.count > 0 {
                 var uint8 = int32toByteArray(value: WisdomIMKitManager.shared.seqId!)
                 headers = headers + uint8
@@ -78,9 +79,11 @@ struct WisdomIMDataVO {
         if (headers.count > 0) {
             packetTotalLength = packetTotalLength + UInt32(headers.count)
         }
+        
         if (payload.count > 0) {
             packetTotalLength = packetTotalLength + UInt32(payload.count)
         }
+        
         let data = NSMutableData()
         var tmp = int32toByteArray(value: packetTotalLength)
         data.append(&tmp, length: Int(PACKETLENGTH_LENGTH))//4
@@ -101,9 +104,11 @@ struct WisdomIMDataVO {
             let h = int16toByteArray(value: 2)
             data.append(h, length: 2)
         }
+        
         if (payload.count > 0) {
             data.append(Data(bytes: payload))
         }
+        
         tmp = [0x0d]
         data.append(tmp, length:1)
         tmp = [0x0a]
@@ -126,6 +131,7 @@ struct WisdomIMDataVO {
             for item in countRray{
                 res += item
             }
+            
             if (endKing + 2) == res{
                 for i in 0..<(buf.count - 1) {
                     payloadKing.append(buf[i])

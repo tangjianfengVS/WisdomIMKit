@@ -2431,12 +2431,12 @@ enum GCDAsyncSocketConfig
 		BOOL isIPv6Disabled = (config & kIPv6Disabled) ? YES : NO;
 		
 		if (isIPv4Disabled && (address4 != nil))
-		{
-			NSString *msg = @"IPv4 has been disabled and an IPv4 address was passed.";
-			err = [self badParamError:msg];
-			
-			return_from_block;
-		}
+        {
+            NSString *msg = @"IPv4 has been disabled and an IPv4 address was passed.";
+            err = [self badParamError:msg];
+            
+            return_from_block;
+        }
 		
 		if (isIPv6Disabled && (address6 != nil))
 		{

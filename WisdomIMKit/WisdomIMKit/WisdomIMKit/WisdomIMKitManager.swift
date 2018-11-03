@@ -9,16 +9,22 @@
 import UIKit
 
 public class WisdomIMKitManager: NSObject {
-    //连接成功回调
-    fileprivate var successTask: (()->())?
-    //连接失败回调
-    fileprivate var falesTask: ((Error?)->())?
-    //Invoke消息回调
-    fileprivate var invokeHandleTask: (([String:Any])->())?
-    //Send消息回调
-    fileprivate var sendHandleTask: (([String:Bool])->())?
+    
+    fileprivate(set) var toHost: String=""
+    
+    fileprivate(set) var onPort: Int=0
+    
+    fileprivate(set) var timeOut: TimeInterval=15
+    
+    fileprivate(set) var randomKey: String=""
+    
+    fileprivate(set) var seqId: UInt32?
     
     public static let shared = WisdomIMKitManager()
+    
+    public var delegate: WisdomIMKitManagerDelegate?
+    
+    fileprivate(set) var taskEvent: WisdomSessionTaskEvent = .commonEvent
     
     fileprivate let reachability = WisdomReachability()
     
@@ -30,11 +36,32 @@ public class WisdomIMKitManager: NSObject {
     
     fileprivate lazy var payloadVO = WisdomIMDataVO()
     
-    public var delegate: WisdomIMKitManagerDelegate?
+    fileprivate var heartBeatSucceed: Bool=false
+    
+    fileprivate var pullOut: Bool=true
+    
+    /** 重新连接次数 */
+    fileprivate var reconnectionCount = kMaxReconnection_time
+    
+    /** 心跳定时 */
+    fileprivate var beatTimer: Timer!
+    
+    /** 心跳间隔时间 */
+    fileprivate var currentHeartBeat = heartBeatTimeMin
+    
+    /** 连接成功回调 */
+    fileprivate var successTask: (()->())?
+    
+    /** 连接失败回调 */
+    fileprivate var falesTask: ((Error?)->())?
+    
+    /** Invoke消息回调 */
+    fileprivate var invokeHandleTask: (([String:Any])->())?
+    
+    /** Send消息回调 */
+    fileprivate var sendHandleTask: (([String:Bool])->())?
 
-    /**
-     *  网络状态变更通知
-     */
+    /** 网络状态变更通知 */
     @objc fileprivate(set) var sessionType: WisdomSessionType = .sessionNone {
         didSet{
             if oldValue != sessionType {
@@ -43,9 +70,7 @@ public class WisdomIMKitManager: NSObject {
         }
     }
     
-    /**
-     *  IM状态变更通知，处理重连机制
-     */
+    /** IM状态变更通知，处理重连机制 */
     @objc fileprivate(set) var iMConnectType: WisdomIMConnectType = .UnConnect {
         didSet{
             if iMConnectType == .FalesConnect {
@@ -67,27 +92,6 @@ public class WisdomIMKitManager: NSObject {
         }
     }
     
-    fileprivate(set) var taskEvent: WisdomSessionTaskEvent = .commonEvent
-    
-    /**
-     *   重新连接次数
-     */
-    fileprivate var reconnectionCount = kMaxReconnection_time
-    
-    /**
-     *   心跳时间，连续成功次数
-     */
-    fileprivate var beatTimer: Timer!
-    fileprivate var currentHeartBeat = heartBeatTimeMin
-    fileprivate var heartBeatSucceed: Bool=false
-    fileprivate var pullOut: Bool=true
-    
-    fileprivate(set) var toHost: String=""
-    fileprivate(set) var onPort: Int=0
-    fileprivate(set) var timeOut: TimeInterval=15
-    fileprivate(set) var randomKey: String=""
-    fileprivate(set) var seqId: UInt32?
-    
     override private init() {
         super.init()
         clientSocket = GCDAsyncSocket()
@@ -104,10 +108,12 @@ public class WisdomIMKitManager: NSObject {
     }
     
     /**
-     *   建立连接接口:
-     *   toHost: 服务Host   onPort: 服务端口号   timeOut: 设置连接超时时间
-     *   successConnect:   连接成功回调
-     *   falesTask:        连接失败回调
+     *  【建立连接接口】
+     *   toHost:               服务Host
+     *   onPort:               服务端口号
+     *   timeOut:              设置连接超时时间
+     *   successConnect:       连接成功回调
+     *   falesTask:            连接失败回调
      */
     @objc func connect(toHost: String,
                        onPort: Int,
@@ -125,12 +131,12 @@ public class WisdomIMKitManager: NSObject {
     }
     
     /**
-     *   用户信息验证登录接口:
-     *   userinfo:     WisdomUserinfo模型, 传递登录必须的属性值
-     *   mode:         当前调用环境设置，和后台协调设置
-     *   service:      当前调用服务类型，和后台协调设置
-     *   randomKey:    处理payload数据加密key，和后台协调设置
-     *   seqId:        处理payload数据序列化key，和后台协调设置
+     *  【用户信息验证登录接口】
+     *   userinfo:             WisdomUserinfo模型, 传递登录必须的属性值
+     *   mode:                 当前调用环境设置(区分开发和测试环境)，和后台协调设置
+     *   service:              当前调用服务类型，和后台协调设置
+     *   randomKey:            处理payload数据加密key，和后台协调设置
+     *   seqId:                处理headers数据加密key，和后台协调设置
      */
     @objc func synchronUserInfo(userinfo: WisdomUserinfo,
                                     mode: Int,
@@ -153,9 +159,9 @@ public class WisdomIMKitManager: NSObject {
     /**
      *  用于应用从后台回调到前台手动Push，或者其他手动Push调用
      */
-    @objc func push() {
+    @objc func push() -> Bool{
         if payload == nil || payload!.SyncKey == nil || payload!.SyncKey!.count == 0{
-            return
+            return false
         }
         
         header!.update(service: UInt8(1))
@@ -164,6 +170,7 @@ public class WisdomIMKitManager: NSObject {
         let data = vo.toByteBuf()
         clientSocket.write(data, withTimeout: -1, tag: 1)
         clientSocket.readData(to: GCDAsyncSocket.crlfData(), withTimeout: -1, tag: 1)
+        return true
     }
     
     /**
@@ -238,7 +245,7 @@ public class WisdomIMKitManager: NSObject {
 }
 
 extension WisdomIMKitManager {
-    //心跳包设置
+    /** 心跳包设置 */
     fileprivate func socketConnectBeginSendBeat() -> Void {
         beatTimer = Timer.scheduledTimer(timeInterval: TimeInterval(currentHeartBeat),
                                          target: self,
@@ -258,7 +265,7 @@ extension WisdomIMKitManager {
             currentHeartBeat = currentHeartBeat - heartBeatTimeMin
             socketConnectBeginSendBeat()
         }
-        print(currentHeartBeat)
+        print("当前心跳间隔: " + String(currentHeartBeat) + " s")
         let data = WisdomIMDataVO().toByteBuf()
         heartBeatSucceed = false
         clientSocket.write(data, withTimeout: -1, tag: 0)
@@ -272,7 +279,7 @@ extension WisdomIMKitManager {
         inTimer.invalidate()
     }
     
-    //error处理
+    /** error处理 */
     fileprivate func error(dic: Dictionary<String,Any>) -> Bool {
         if let baseResponse = dic["BaseResponse"] as? Dictionary<String,Any>{
             let ret = baseResponse["Ret"] as? NSNumber
@@ -287,11 +294,12 @@ extension WisdomIMKitManager {
         return false
     }
     
+    /** SyncKey过滤 */
     fileprivate func synchronousPush(syncKey:[Dictionary<String,Any>]) {
         for item in syncKey {
             if let Val = item["Val"] as? String{
                 if Val != "0"{
-                    push()
+                    let _ = push()
                     return
                 }
             }
@@ -319,6 +327,7 @@ extension WisdomIMKitManager {
         }
     }
     
+    /** IM当前连接状态获取 */
     fileprivate func getRequestError() -> (Bool,String){
         if sessionType == .sessionNone {
             print("请检查网络")
@@ -365,7 +374,7 @@ extension WisdomIMKitManager: GCDAsyncSocketDelegate{
         //Sync129
         if payloadVO.optrType == UInt32(0x81) {
             clientSocket.readData(to: GCDAsyncSocket.crlfData(), withTimeout: -1,tag: 0)
-            push()
+            let _ = push()
         //heartBeat
         }else if resList.0.count == 0 && data.count == 18{
             heartBeatSucceed = true
@@ -395,7 +404,7 @@ extension WisdomIMKitManager: GCDAsyncSocketDelegate{
 }
 
 extension WisdomIMKitManager{
-    //jsonPayload
+    /** jsonPayload */
     fileprivate func jsonPayloadData(payload : Data,tag : Int){
         do{
             let strPayload = String.init(data: payload, encoding: String.Encoding.utf8)
