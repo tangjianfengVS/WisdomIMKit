@@ -59,7 +59,7 @@ public class WisdomIMKitManager: NSObject {
     fileprivate var invokeHandleTask: (([String:Any])->())?
     
     /** Send消息回调 */
-    fileprivate var sendHandleTask: (([String:Bool])->())?
+    fileprivate var sendChatHandleTask: (([String:Bool])->())?
 
     /** 网络状态变更通知 */
     @objc fileprivate(set) var sessionType: WisdomSessionType = .sessionNone {
@@ -198,16 +198,16 @@ public class WisdomIMKitManager: NSObject {
     
     /**
      *   send: IM自定义主动指令，主动调用，非等待事件
-     *
+     *   应用: 聊天信息
      *
      *
      */
-    @objc func sendToServer(payloadDic:Dictionary<String, Any>?,
-                      needShow: Bool,
-                      closure: @escaping (([String:Bool])->())) {
+    @objc func sendChatToServer(payloadDic: [String:Any],
+                                  needShow: Bool,
+                                   closure: @escaping (([String:Bool])->())) {
         let res = getRequestError()
         if res.0 {
-            taskEvent = .sendEvent
+            taskEvent = .sendChatEvent
             header!.update(service: UInt8(1))
 //            var vo = ZHInvestIMVO.init(payloadDic: payloadDic, headersDic: self.header)
             //vo.optrType = UInt16(0x0111)//273不能改
@@ -217,7 +217,16 @@ public class WisdomIMKitManager: NSObject {
 //            }
 //            clientSocket.write(data, withTimeout: -1, tag: tag)
 //            clientSocket.readData(to: GCDAsyncSocket.crlfData(), withTimeout: -1, tag: tag)
-            sendHandleTask = closure
+            
+            //self.header["service"] = UInt8(1)
+            //init(payload: payload!, header: header!)
+            var vo = WisdomIMDataVO.init(payload: payloadDic, header: header!)//init(payloadDic: payloadDic, headersDic: self.header)
+            vo.optrType = UInt16(0x0111)//273不能改
+            let data = vo.toByteBuf()
+
+            clientSocket.write(data, withTimeout: -1, tag: taskEvent.hashValue)
+            clientSocket.readData(to: GCDAsyncSocket.crlfData(), withTimeout: -1, tag: taskEvent.hashValue)
+            sendChatHandleTask = closure
         }else{
             closure(["SendMsg": false])
         }
@@ -231,7 +240,7 @@ public class WisdomIMKitManager: NSObject {
         successTask = nil
         falesTask = nil
         invokeHandleTask = nil
-        sendHandleTask = nil
+        sendChatHandleTask = nil
         taskEvent = .commonEvent
         
         timerInvalidate(timer: beatTimer)
@@ -285,7 +294,10 @@ extension WisdomIMKitManager {
             let ret = baseResponse["Ret"] as? NSNumber
             let errMsg = baseResponse["ErrMsg"] as? String
             if (errMsg != nil && errMsg!.count > 0) || ret?.intValue != 0 {
-                if ret?.intValue == -1{
+                
+                if errMsg!.contains(NotAuthorized) {
+                    delegate?.synchronUserInfo(info: ["Error":NotAuthorized],result: false)
+                }else if ret?.intValue == -1{
                     print("后台服务未开启。。。。")
                 }
                 return true
@@ -432,7 +444,9 @@ extension WisdomIMKitManager{
                         reconnectionCount = kMaxReconnection_time
                         iMConnectType = .SuccessSynchronUserInfo
                         
-                        delegate?.sessionSynchronUserInfo(info: dic)
+                        var resultDic: [String:Any] = dic
+                        resultDic.removeValue(forKey: "SyncKey")
+                        delegate?.synchronUserInfo(info: resultDic,result: true)
                         synchronousPush(syncKey: SyncKey)
                     }
                 //pull(消息列表数据)
@@ -443,7 +457,9 @@ extension WisdomIMKitManager{
                         reconnectionCount = kMaxReconnection_time
                         iMConnectType = .SuccessSynchronUserInfo
                         
-                        delegate?.sessionSynchronUserInfo(info: dic)
+                        var resultDic: [String:Any] = dic
+                        resultDic.removeValue(forKey: "SyncKey")
+                        delegate?.synchronUserInfo(info: resultDic,result: true)
                         synchronousPush(syncKey: SyncKey)
                     }
                     

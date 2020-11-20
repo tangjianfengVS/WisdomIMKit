@@ -23,11 +23,11 @@ class TestViewController: UIViewController {
 }
 
 extension TestViewController: WisdomIMKitManagerDelegate{
-    func didReadDataInfo(data: [Any]) {
+    func synchronUserInfo(info: [String:Any], result: Bool) {
         
     }
     
-    func sessionSynchronUserInfo(info: [String:Any]) {
-    
+    func didReadDataInfo(data: [Any]) {
+        
     }
 }

@@ -24,14 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         WisdomIMKitManager.shared.connect(toHost: "222.66.158.238", onPort: 61613, timeOut: 15, successConnect: {
             //登录
             let userinfo = WisdomUserinfo(Uin: "11971",
-                                          Sid: "8yi81q4f3a7mk0ai",
-                                          Skey: "8793a4ea88edccb42098a7b5e31bee4e",
+                                          Sid: "s5w7rypxfoz5hrsm",
+                                          Skey: "386849eb9ce2c9009ce103b29643396f",
                                           DeviceID: "")
             WisdomIMKitManager.shared.synchronUserInfo(userinfo: userinfo,
                                                        mode: 1,
                                                        service: 1,
-                                                       randomKey: "b14xad266odmmwpu",
-                                                       seqId: 3286)
+                                                       randomKey: "l7cianks2jyrvcj9",
+                                                       seqId: 15)
         }) { (error) in
             print("连接失败")
         }

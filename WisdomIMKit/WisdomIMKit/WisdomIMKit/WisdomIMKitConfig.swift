@@ -29,6 +29,10 @@ public let heartBeatTimeMax = 180
 public let kMaxReconnection_time = 6
 public let beatLimit = 5
 
+public let NotAuthorized = "Not Authorized"
+
+
+
 /** 设备信号变化通知 */
 public let WisdomSessionChangeNotificationKey = "WisdomSessionChangeNotificationKey"
 
@@ -56,12 +60,12 @@ public let WisdomIMConnectChangeNotificationKey = "WisdomIMConnectChangeNotifica
 @objc public enum WisdomSessionTaskEvent: NSInteger {
     case commonEvent=0      //无事件
     case invokeEvent=1      //invoke自定义主动事件
-    case sendEvent=2        //send自定义主动事件
+    case sendChatEvent=2    //send自定义主动事件，聊天类型
 }
 
 @objc public protocol WisdomIMKitManagerDelegate  {
     /** im用户数据同步协议 */
-    func sessionSynchronUserInfo(info: [String:Any])
+    func synchronUserInfo(info: [String:Any], result: Bool)
     
     /** im聊天列表消息协议 */
     func didReadDataInfo(data: [Any])
